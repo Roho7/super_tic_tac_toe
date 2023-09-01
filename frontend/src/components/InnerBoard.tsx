@@ -1,30 +1,22 @@
 import { useState } from "react";
-import Board from "../components/Board";
+import Board from "./Board";
+import WIN_MATRIX from "../utils/WIN_MATRIX";
 
-function GamePage() {
-  const WIN_MATRIX = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
-
+function InnerBoard({ player, setPlayer, sendIdx }) {
   const [values, setValues] = useState(Array(9).fill(null));
-  const [playerX, setPlayerX] = useState(true);
   const [scores, setScores] = useState({ xScore: 0, oScore: 0 });
 
-  const handleBoxClick = (boxIdx: any) => {
+  // Update the board on every box click
+  const handleBoxClick = (boxIdx: number) => {
     const updateBoard = values.map((value, idx) => {
       if (idx === boxIdx) {
-        return playerX === true ? "X" : "O";
+        return player === true ? "X" : "O";
       } else {
         return value;
       }
     });
+
+    sendIdx(boxIdx);
 
     const winner = checkWinner(updateBoard);
     if (winner) {
@@ -38,11 +30,12 @@ function GamePage() {
         setScores({ ...scores, oScore });
       }
     }
-    console.log(scores);
+
     setValues(updateBoard);
-    setPlayerX(!playerX);
+    setPlayer(!player);
   };
 
+  // Compare with win matrix, print the winner if matches
   const checkWinner = (values) => {
     for (let i = 0; i < WIN_MATRIX.length; i++) {
       const [x, y, z] = WIN_MATRIX[i];
@@ -52,8 +45,9 @@ function GamePage() {
       }
     }
   };
+
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center">
       <div className="">
         <Board board={values} onClick={handleBoxClick} />
       </div>
@@ -61,4 +55,4 @@ function GamePage() {
   );
 }
 
-export default GamePage;
+export default InnerBoard;

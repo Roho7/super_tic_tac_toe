@@ -3,7 +3,9 @@ import "./App.css";
 import Homepage from "./pages/Homepage";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import GamePage from "./pages/GamePage";
+// import GamePage from "./pages/GamePage";
+import FinalBoard from "./components/FinalBoard";
+import ParentComponent from "./trial/parent";
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/play" element={<GamePage />} />
+        <Route path="/play" element={<FinalBoard />} />
+        <Route path="/trial" element={<ParentComponent />} />
       </Routes>
     </>
   );
