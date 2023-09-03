@@ -2,9 +2,14 @@ import { useState } from "react";
 import Board from "./Board";
 import WIN_MATRIX from "../utils/WIN_MATRIX";
 
-function InnerBoard({ player, setPlayer, sendIdx }) {
+function InnerBoard({
+  player,
+  setPlayer,
+  sendIdx,
+  sendMatchWinner,
+  sendBoardComplete,
+}) {
   const [values, setValues] = useState(Array(9).fill(null));
-  const [scores, setScores] = useState({ xScore: 0, oScore: 0 });
 
   // Update the board on every box click
   const handleBoxClick = (boxIdx: number) => {
@@ -16,25 +21,18 @@ function InnerBoard({ player, setPlayer, sendIdx }) {
       }
     });
 
-    sendIdx(boxIdx);
+    // Send the inner button's index and its completed info to the parent board
+    sendIdx(boxIdx, checkBoardCompletion(values));
 
+    // Check the winner in every click
     const winner = checkWinner(updateBoard);
-    if (winner) {
-      if (winner === "X") {
-        let { xScore } = scores;
-        xScore += 1;
-        setScores({ ...scores, xScore });
-      } else {
-        let { oScore } = scores;
-        oScore += 1;
-        setScores({ ...scores, oScore });
-      }
-    }
 
+    sendMatchWinner(winner);
     setValues(updateBoard);
     setPlayer(!player);
   };
 
+  // Declaration of checkWinner
   // Compare with win matrix, print the winner if matches
   const checkWinner = (values) => {
     for (let i = 0; i < WIN_MATRIX.length; i++) {
@@ -42,13 +40,32 @@ function InnerBoard({ player, setPlayer, sendIdx }) {
       if (values[x] && values[x] === values[y] && values[y] === values[z]) {
         console.log(values[x]);
         return values[x];
+      } else {
+        return null;
       }
     }
   };
 
+  //Check if a board is completed
+  const checkBoardCompletion = (values) => {
+    let count = 0;
+    for (let i = 0; i < values.length; i++) {
+      if (values[i] != null) {
+        count += 1;
+      } else {
+        count += 0;
+      }
+    }
+    if (count == values.length - 1) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
-    <div className="flex justify-center items-center">
-      <div className="">
+    <div className="flex justify-center items-center gap-8 w-fu">
+      <div className="p-2 bg-[#ffd7c4] border rounded-md">
         <Board board={values} onClick={handleBoxClick} />
       </div>
     </div>

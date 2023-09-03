@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req: Request, res: Response) => {
-  const q = "SELECT * FROM users;";
+  const q = "SELECT * FROM game_log;";
   db.query(q, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
@@ -66,11 +66,28 @@ app.post("/login", async (req: Request, res: Response) => {
 
     const values = [username];
 
-    // if (!q) {
-    //   return res.
-    // }
-
     const password = db.query(q, [values], (err, data) => {
+      if (err) return res.json(err);
+      console.log(data);
+      return res.json(data);
+    });
+  } catch {
+    res.status(500).send();
+  }
+});
+
+app.post("/play", async (req: Request, res: Response) => {
+  try {
+    var board = req.body.board;
+    var winner = req.body.winner;
+
+    console.log(board, winner);
+
+    const q = "INSERT INTO game_log VALUES(?)";
+
+    const values = [board, winner];
+
+    db.query(q, [values], (err, data) => {
       if (err) return res.json(err);
       console.log(data);
       return res.json(data);

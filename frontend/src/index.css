@@ -5,12 +5,26 @@
 input {
   @apply p-2 rounded-md;
 }
+
+body {
+  @apply bg-[#faaa89];
+}
+
 .box {
-  @apply flex w-16 h-16 justify-center items-center bg-slate-200 rounded-md text-2xl text-slate-800 hover:bg-slate-300 disabled:bg-red-500 shadow-lg;
+  @apply flex w-16 h-16 justify-center items-center bg-[#eef0f3] rounded-md text-2xl text-slate-800 hover:shadow-2xl
+          hover:-translate-y-1 shadow-xl transition-all;
 }
 .large_quad {
   @apply p-4 bg-gray-400;
 }
 .off {
-  @apply opacity-30 pointer-events-none;
+  @apply opacity-50 pointer-events-none shadow-none;
+}
+
+.x {
+  @apply bg-[#ea2c77] text-[#601d38] text-4xl font-extrabold;
+}
+
+.o {
+  @apply bg-[#0f2257] text-[#708fe4] text-4xl font-extrabold;
 }
