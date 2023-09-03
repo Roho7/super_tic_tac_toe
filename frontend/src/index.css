@@ -7,7 +7,7 @@ input {
 }
 
 body {
-  @apply bg-light-100;
+  @apply bg-dark-500;
 }
 
 h1 {
@@ -19,11 +19,11 @@ h2 {
 }
 
 .box {
-  @apply flex w-14 h-14 justify-center items-center bg-[#eef0f3] rounded-md text-2xl text-slate-800 hover:shadow-2xl
+  @apply flex w-14 h-14 justify-center items-center bg-light-100 rounded-md text-2xl hover:shadow-2xl
           hover:-translate-y-1 shadow-xl transition-all;
 }
 .large_quad {
-  @apply p-4 bg-light-100;
+  @apply p-4 bg-dark-500;
 }
 .off {
   @apply opacity-50 pointer-events-none shadow-none;
@@ -35,4 +35,8 @@ h2 {
 
 .o {
   @apply bg-accent2-500 text-accent2-100 text-4xl font-extrabold;
+}
+
+.glass {
+  @apply rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100;
 }

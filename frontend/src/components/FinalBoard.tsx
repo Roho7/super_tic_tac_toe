@@ -12,15 +12,8 @@ function FinalBoard({ sendScores }: any) {
   const [boards, setBoards] = useState<ValuesArray>(Array(9).fill(null));
   const [playerX, setPlayerX] = useState(true);
   const [activateBoard, setActivateBoard] = useState(4);
-  const [_, setBoardComplete] = useState(false);
   const indRef = useRef(0);
   const boardWinnerRef = useRef("");
-
-  // Receive data if the board is complete
-  const receiveBoardComplete = (data: boolean) => {
-    console.log("board complete", data);
-    setBoardComplete(data);
-  };
 
   useEffect(() => {
     indRef.current = activateBoard;
@@ -136,7 +129,6 @@ function FinalBoard({ sendScores }: any) {
                 setPlayer={setPlayerX}
                 sendIdx={receiveIdx}
                 sendMatchWinner={receiveMatchWinner}
-                sendBoardComplete={receiveBoardComplete}
               />
             </div>
           );
