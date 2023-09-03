@@ -7,24 +7,32 @@ input {
 }
 
 body {
-  @apply bg-[#faaa89];
+  @apply bg-light-100;
+}
+
+h1 {
+  @apply text-light-400 font-bold text-2xl;
+}
+
+h2 {
+  @apply text-xl text-light-200;
 }
 
 .box {
-  @apply flex w-16 h-16 justify-center items-center bg-[#eef0f3] rounded-md text-2xl text-slate-800 hover:shadow-2xl
+  @apply flex w-14 h-14 justify-center items-center bg-[#eef0f3] rounded-md text-2xl text-slate-800 hover:shadow-2xl
           hover:-translate-y-1 shadow-xl transition-all;
 }
 .large_quad {
-  @apply p-4 bg-gray-400;
+  @apply p-4 bg-light-100;
 }
 .off {
   @apply opacity-50 pointer-events-none shadow-none;
 }
 
 .x {
-  @apply bg-[#ea2c77] text-[#601d38] text-4xl font-extrabold;
+  @apply bg-accent1-500 text-accent1-100 text-4xl font-extrabold;
 }
 
 .o {
-  @apply bg-[#0f2257] text-[#708fe4] text-4xl font-extrabold;
+  @apply bg-accent2-500 text-accent2-100 text-4xl font-extrabold;
 }

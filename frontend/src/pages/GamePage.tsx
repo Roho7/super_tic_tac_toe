@@ -1,11 +1,14 @@
-import { createElement, useState } from "react";
+import { useState } from "react";
 import FinalBoard from "../components/FinalBoard";
 
 function GamePage() {
   const [winner, setWinner] = useState("");
   const [showWinner, setShowWinner] = useState(false);
 
-  const receiveScores = (winner) => {
+  const receiveScores = (winner: string) => {
+    if (winner) {
+      alert(winner);
+    }
     setWinner(winner);
   };
 
@@ -15,17 +18,17 @@ function GamePage() {
   };
 
   return (
-    <div className="">
-      <button
-        className="absolute left-10 top-1/2 bg-red-500 p-2"
-        onClick={showWinnerFunc}
-      >
-        Show Scores
-      </button>
-      <div className="flex h-screen justify-center items-center">
+    <div className="p-4">
+      <div className="flex flex-col gap-4 h-screen justify-center items-center">
+        <button
+          className="absolute left-10 bg-dark-800 text-light-100 rounded-md p-2"
+          onClick={showWinnerFunc}
+        >
+          Show Scores
+        </button>
         {showWinner && (
-          <div className="banner-cont absolute right-10 top-10 text-3xl font-bold">
-            {winner} is the Winner!!
+          <div className="banner-cont absolute right-10 top-10 text-3xl font-bold text-light-400">
+            {winner ? `${winner} is the Winner!!` : "No winner yet!"}
           </div>
         )}
         <FinalBoard sendScores={receiveScores} />
