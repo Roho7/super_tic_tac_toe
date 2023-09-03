@@ -2,13 +2,9 @@ import { useRef, useState } from "react";
 import Board from "./Board";
 import WIN_MATRIX from "../utils/WIN_MATRIX";
 
-function InnerBoard({
-  player,
-  setPlayer,
-  sendIdx,
-  sendMatchWinner,
-  sendBoardComplete,
-}) {
+type ValuesState = Array<null | string>;
+
+function InnerBoard({ player, setPlayer, sendIdx, sendMatchWinner }: any) {
   const [values, setValues] = useState(Array(9).fill(null));
   const valuesRef = useRef(Array(9).fill(null));
 
@@ -47,7 +43,7 @@ function InnerBoard({
 
   // Declaration of checkWinner
   // Compare with win matrix, print the winner if matches
-  const checkWinner = (values) => {
+  const checkWinner = (values: ValuesState) => {
     for (let i = 0; i < WIN_MATRIX.length; i++) {
       const [x, y, z] = WIN_MATRIX[i];
       if (values[x] && values[x] === values[y] && values[y] === values[z]) {
@@ -58,7 +54,7 @@ function InnerBoard({
   };
 
   //Check if a board is completed
-  const checkBoardCompletion = (values) => {
+  const checkBoardCompletion = (values: ValuesState) => {
     let count = 0;
     for (let i = 0; i < values.length; i++) {
       if (values[i] != null) {
@@ -76,7 +72,7 @@ function InnerBoard({
 
   return (
     <div className="flex justify-center items-center gap-8 w-fu">
-      <div className="p-2 bg-light-200 border rounded-md">
+      <div className="p-2 bg-accent2-100 border rounded-md">
         <Board board={values} onClick={handleBoxClick} />
       </div>
     </div>
