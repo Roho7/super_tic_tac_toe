@@ -43,25 +43,24 @@ The folder structure is distributed primarily into _Frontend_ and _Backend_. Ins
 
 ### Pages
 
-**GamePage.tsx**
-**HomePage.tsx**
-**JoinGame.tsx**
-**Login.tsx**
-**Register.tsx**
-**StartGame.tsx**
+- **GamePage.tsx**
+- **HomePage.tsx**
+- **JoinGame.tsx**
+- **Login.tsx**
+- **Register.tsx**
+- **StartGame.tsx**
 
 ### Components
 
-**Box.tsx**
-Returns a clickable box component that has a variable class one for X and another for O.
-**Board.tsx**
-Maps over all the individual boxes 9 times and returns a small board.
-**InnerBoard.tsx**
-Maps over all the boards 9 times and returns a bigger board component with all the small boards inside.
-Contains all the logic for each individual board. Keeps track of the board states, checks for when a board is completed and if a board has been won.
-**FinalBoard.tsx**
-Returns the complete outer board with all the logic that handles inner board states like deactivating and activating the correct boards and switching the player every alternate turn. Also keeps track of the winner.
-**Scores.tsx**
-Keeps track of the scores and returns a component that shows the scores.
-**TurnCount.tsx**
-Keeps track of the player and returns a component that shows the current player.
+- **Box.tsx**
+  Returns a clickable box component that has a variable class one for X and another for O.
+- **Board.tsx**
+  Maps over all the individual boxes 9 times and returns a small board.
+- **InnerBoard.tsx**
+  Maps over all the boards 9 times and returns a bigger board component with all the small boards inside. Contains all the logic for each individual board. Keeps track of the board states, checks for when a board is completed and if a board has been won.
+- **FinalBoard.tsx**
+  Returns the complete outer board with all the logic that handles inner board states like deactivating and activating the correct boards and switching the player every alternate turn. Also keeps track of the winner.
+- **Scores.tsx**
+  Keeps track of the scores and returns a component that shows the scores.
+- **TurnCount.tsx**
+  Keeps track of the player and returns a component that shows the current player.
