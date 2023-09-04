@@ -19,7 +19,7 @@ h2 {
 }
 
 button {
-  @apply px-4 py-2 glass font-bold shadow-lg hover:-translate-y-1 text-gray-50;
+  @apply px-4 py-2 glass font-bold shadow-lg hover:-translate-y-1 text-gray-50 transition-all;
 }
 
 .box {
