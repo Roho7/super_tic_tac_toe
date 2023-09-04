@@ -32,11 +32,12 @@ app.get("/", (req: Request, res: Response) => {
 app.post("/register", async (req: Request, res: Response) => {
   try {
     // Get username
-    var username = req.body.username;
+    var username = req.body.user;
+    console.log(username);
 
     // Generate hashed password
     var salt = await bcrypt.genSalt(10);
-    var passhash = await bcrypt.hash(req.body.password, salt);
+    var passhash = await bcrypt.hash(req.body.user.password, salt);
 
     // Insert into Database
     const q =
@@ -58,7 +59,7 @@ app.post("/register", async (req: Request, res: Response) => {
 app.post("/login", async (req: Request, res: Response) => {
   try {
     // Get username
-    var username = req.body.username;
+    var username = req.body.user.username;
 
     // Search into Database
     const q =

@@ -7,6 +7,7 @@ import Scores from "./Scores";
 type ValuesArray = (string | null)[];
 
 const completedBoards: number[] = [];
+const wonBoards: number[] = [];
 
 function FinalBoard({ sendScores }: any) {
   const [boards, setBoards] = useState<ValuesArray>(Array(9).fill(null));
@@ -37,7 +38,7 @@ function FinalBoard({ sendScores }: any) {
         setActivateBoard(index);
       }
     } else {
-      if (completedBoards.includes(index)) {
+      if (completedBoards.includes(index) || wonBoards.includes(index)) {
         if (completedBoards.includes(index + 1)) {
           for (let i = 0; i < 9; i++) {
             if (!completedBoards.includes(i)) {
@@ -57,6 +58,7 @@ function FinalBoard({ sendScores }: any) {
     // Send board number and winner when one board win condition is met
     if (board) {
       boardWinnerRef.current = board;
+      wonBoards.push(indRef.current);
     } else {
       boardWinnerRef.current = "";
     }
@@ -120,7 +122,7 @@ function FinalBoard({ sendScores }: any) {
         <TurnCount player={playerX} />
         <Scores scores={boards} />
       </div>
-      <div className="h-screen w-1/2 grid grid-cols-3 grid-rows-3">
+      <div className="h-screen w-1/2 m-4 grid grid-cols-3 grid-rows-3 justify-center items-center glass p-4">
         {boards.map((_item, _idx) => {
           return (
             <div onClick={() => handleClick()} className={`boards`}>

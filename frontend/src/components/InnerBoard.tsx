@@ -72,7 +72,7 @@ function InnerBoard({ player, setPlayer, sendIdx, sendMatchWinner }: any) {
 
   return (
     <div className="flex justify-center items-center gap-8 w-fu">
-      <div className="p-2 bg-accent2-100 border rounded-md">
+      <div className="p-2 ">
         <Board board={values} onClick={handleBoxClick} />
       </div>
     </div>

@@ -7,26 +7,34 @@ input {
 }
 
 body {
-  @apply bg-dark-500;
+  @apply h-screen bg-leaf-pattern bg-cover;
 }
 
 h1 {
-  @apply text-light-400 font-bold text-2xl;
+  @apply text-gray-50 font-bold text-2xl;
 }
 
 h2 {
-  @apply text-xl text-light-200;
+  @apply text-lg text-gray-500;
+}
+
+button {
+  @apply px-4 py-2 glass font-bold shadow-lg hover:-translate-y-1 text-gray-50;
 }
 
 .box {
-  @apply flex w-14 h-14 justify-center items-center bg-light-100 rounded-md text-2xl hover:shadow-2xl
+  @apply flex w-14 h-14 justify-center items-center bg-gray-100 rounded-md text-2xl hover:shadow-2xl
           hover:-translate-y-1 shadow-xl transition-all;
 }
 .large_quad {
   @apply p-4 bg-dark-500;
 }
+.glass {
+  @apply rounded-xl bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-50 border border-gray-500;
+}
+
 .off {
-  @apply opacity-50 pointer-events-none shadow-none;
+  @apply opacity-50 pointer-events-none shadow-none border-none;
 }
 
 .x {
@@ -35,8 +43,4 @@ h2 {
 
 .o {
   @apply bg-accent2-500 text-accent2-100 text-4xl font-extrabold;
-}
-
-.glass {
-  @apply rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100;
 }

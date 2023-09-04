@@ -30,7 +30,9 @@ function Register() {
       alert("password doesn't match");
     } else {
       try {
-        await axios.post("http://localhost:8000/register", user);
+        console.log(user.username);
+        await axios.post("http://localhost:8000/register", user.username);
+
         navigate("/");
       } catch (err) {
         console.log(err);
