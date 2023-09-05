@@ -15,8 +15,16 @@ function GamePage() {
     <div className="">
       <div className="flex flex-col gap-4 h-screen justify-center items-center">
         {winner && (
-          <div className="absolute z-20 text-3xl font-bold text-slate-500 glass p-4 rounded-md shadow-lg">
+          <div className="absolute flex flex-col items-center gap-4 z-20 text-5xl font-bold text-gray-50 glass p-4 rounded-md shadow-lg">
             {winner ? `${winner} is the Winner!!` : "No winner yet!"}
+            <h1
+              className="hover:text-gray-400 cursor-pointer"
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              Restart
+            </h1>
           </div>
         )}
         <FinalBoard sendScores={receiveScores} />

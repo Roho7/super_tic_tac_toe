@@ -1,5 +1,5 @@
 type BoxProps = {
-  value: string;
+  value: null | string;
   onClick: () => void;
 };
 
