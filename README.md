@@ -1,8 +1,12 @@
 # Super Tic-Tac-Toe
 
+#### Video Demo: [https://www.youtube.com/watch?v=l-zyL2GjFZM]
+
+#### Description:
+
 Super tic-tac-toe is a modified game of tic-tac-toe where there are 9 tic-tac-toe boards nested within a larger tic-tac-toe board.
 
-### Super Tic-Tac-Toe Rules:
+**Super Tic-Tac-Toe Rules:**
 
 1. **Game Setup**:
    - Super Tic-Tac-Toe consists of a 3x3 grid, where each cell contains a regular 3x3 Tic-Tac-Toe board.
@@ -34,13 +38,16 @@ Super Tic-Tac-Toe combines strategy, tactics, and a larger board to create an en
 ## Project Details
 
 This game logic was built using the **React** framework with **Typescript** as the language. For the styling, I used **TailwindCSS**.
+The Routing was acheived using React-router-dom. The development server used to build this project was **Vite**.
 
 My react pages and components are stored inside folder labelled _pages_ and _components_ respectively.
 
 ### Pages
 
 - **GamePage.tsx**
+  Exists at "/play" route. Contains the actual game.
 - **HomePage.tsx**
+  Exists at "/" route. The home of my project. Contains a button to route to "/play".
 
 ### Components
 
@@ -61,3 +68,7 @@ My react pages and components are stored inside folder labelled _pages_ and _com
 
 - **WIN_MATRIX:**
   Contains a nested array of all possible win combinations. Used to match with each individual board to find individual board wins and also with the super board.
+
+### Anecdotes
+
+Initially my aim was to create a multiplayer super-tic-tac-toe game which could be deployed to the web and two players could play in real time. But because I built the game logic to be calculated in client side, and also a few design choices I made in react to actually make the game behave the way correct way, making a backend for this became impossible. To create a server which could store game data, I couldn't just use client side rendering, I would have to use a different design approach which seemed overwhelming at my level. Hence, I stuck with my version of this app which can be deployed to the web easily and played on a single browser.
