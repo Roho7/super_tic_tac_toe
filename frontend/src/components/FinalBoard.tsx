@@ -122,7 +122,7 @@ function FinalBoard({ sendScores }: any) {
         <TurnCount player={playerX} />
         <Scores scores={boards} />
       </div>
-      <div className="h-screen w-1/2 m-4 grid grid-cols-3 grid-rows-3 justify-center items-center glass p-4">
+      <div className="h-screen m-4 grid grid-cols-3 grid-rows-3 justify-center items-center glass p-4">
         {boards.map((_item, _idx) => {
           return (
             <div onClick={() => handleClick()} className={`boards`}>
